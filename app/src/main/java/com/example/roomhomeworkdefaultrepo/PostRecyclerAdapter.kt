@@ -10,6 +10,7 @@ import com.example.roomhomeworkdefaultrepo.room.dto.PostDTO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PostRecyclerAdapter(val context: Context): RecyclerView.Adapter<PostRecyclerAdapter.ViewHolder>() {
     var posts: List<PostDTO> = ArrayList()
@@ -27,11 +28,10 @@ class PostRecyclerAdapter(val context: Context): RecyclerView.Adapter<PostRecycl
             CoroutineScope(Dispatchers.IO).launch {
                 db.postDAO().deletePostById(posts[position].id)
                 val dt = db.postDAO().getAllPosts()
-                CoroutineScope(Dispatchers.Main).launch {
+                withContext(Dispatchers.Main) {
                     posts =dt
                     notifyDataSetChanged()
                 }
-
             }
         }
     }
