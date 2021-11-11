@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="postdto"
+            type="com.example.roomhomeworkdefaultrepo.room.dto.PostDTO" />
+
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemAll">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(postdto.id)}"
+            android:id="@+id/idx"
+            android:textSize="30sp"
+            android:padding="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/idx"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@{postdto.title}"
+            android:id="@+id/title"
+            android:textSize="35sp"
+            android:layout_marginLeft="60dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/idx"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            android:text="@{postdto.content}"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
