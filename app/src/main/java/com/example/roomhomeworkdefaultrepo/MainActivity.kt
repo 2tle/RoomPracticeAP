@@ -37,12 +37,9 @@ class MainActivity : AppCompatActivity() {
                 adapter.posts = contentList
                 adapter.notifyDataSetChanged()
             }
-
-
-
         }
-
     }
+
 
     fun uploadPost() {
         val title = binding.titleEditText.text.toString()

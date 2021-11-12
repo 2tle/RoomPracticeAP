@@ -4,13 +4,16 @@
         <variable
             name="postdto"
             type="com.example.roomhomeworkdefaultrepo.room.dto.PostDTO" />
-
+        <variable
+            name="mainActivity"
+            type="com.example.roomhomeworkdefaultrepo.MainActivity" />
 
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/itemAll">
+        android:id="@+id/itemAll"
+        android:onClick="@{() -> mainActivity.deletePost(postdto.id)}">
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"

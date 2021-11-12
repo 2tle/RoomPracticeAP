@@ -23,17 +23,7 @@ class PostRecyclerAdapter(val context: Context): RecyclerView.Adapter<PostRecycl
 
     override fun onBindViewHolder(holder: PostRecyclerAdapter.ViewHolder, position: Int) {
         holder.binding.postdto = posts[position]
-        holder.binding.itemAll.setOnClickListener {
-            val db = AppDatabase.getInstance(context)!!
-            CoroutineScope(Dispatchers.IO).launch {
-                db.postDAO().deletePostById(posts[position].id)
-                val dt = db.postDAO().getAllPosts()
-                withContext(Dispatchers.Main) {
-                    posts =dt
-                    notifyDataSetChanged()
-                }
-            }
-        }
+        holder.binding.mainActivity = context as MainActivity
     }
 
 
